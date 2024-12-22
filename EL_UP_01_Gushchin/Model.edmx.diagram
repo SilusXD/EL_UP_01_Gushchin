@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9cba2c66c0b54629906bc1545a6023d4" Name="Diagram1">
+        <EntityTypeShape EntityType="EquipmentRepairModel.Clients" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquipmentRepairModel.Equipment" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquipmentRepairModel.Materials" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquipmentRepairModel.Priorities" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquipmentRepairModel.Problems" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquipmentRepairModel.Reports" Width="1.5" PointX="7.5" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquipmentRepairModel.ReportsAndMaterials" Width="1.5" PointX="9.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquipmentRepairModel.Requests" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquipmentRepairModel.Roles" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquipmentRepairModel.Statuses" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquipmentRepairModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquipmentRepairModel.Users" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquipmentRepairModel.Workers" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <AssociationConnector Association="EquipmentRepairModel.FK_Requests_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="EquipmentRepairModel.FK_Requests_Equipment" ManuallyRouted="false" />
+        <AssociationConnector Association="EquipmentRepairModel.FK_ReportsAndMaterials_Materials" ManuallyRouted="false" />
+        <AssociationConnector Association="EquipmentRepairModel.FK_Requests_Priorities" ManuallyRouted="false" />
+        <AssociationConnector Association="EquipmentRepairModel.FK_Requests_Types_of_problems" ManuallyRouted="false" />
+        <AssociationConnector Association="EquipmentRepairModel.FK_Reports_Requests" ManuallyRouted="false" />
+        <AssociationConnector Association="EquipmentRepairModel.FK_ReportsAndMaterials_Reports" ManuallyRouted="false" />
+        <AssociationConnector Association="EquipmentRepairModel.FK_Requests_Statuses" ManuallyRouted="false" />
+        <AssociationConnector Association="EquipmentRepairModel.FK_Requests_Workers" ManuallyRouted="false" />
+        <AssociationConnector Association="EquipmentRepairModel.FK_Users_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="EquipmentRepairModel.FK_Workers_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="EquipmentRepairModel.FK_Users_Workers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

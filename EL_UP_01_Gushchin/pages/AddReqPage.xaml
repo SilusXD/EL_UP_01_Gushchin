@@ -1,0 +1,200 @@
+﻿<Page x:Class="EL_UP_01_Gushchin.pages.AddReqPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EL_UP_01_Gushchin.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddReqPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="12*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1">
+            <TextBlock Text="Дата и время создания"
+                       Grid.Row="0"
+                       Grid.Column="0" />
+            <TextBlock Text="Дата и время окончания"
+                       Grid.Row="1"
+                       Grid.Column="0" />
+            <TextBlock Text="Приоритет"
+                       Grid.Row="2"
+                       Grid.Column="0" />
+            <TextBlock Text="Оборудование"
+                       Grid.Row="3"
+                       Grid.Column="0" />
+            <TextBlock Text="Серийный номер оборудования"
+                       Grid.Row="4"
+                       Grid.Column="0" />
+            <TextBlock Text="Проблема"
+                       Grid.Row="4"
+                       Grid.Column="0" />
+            <TextBlock Text="Описание"
+                       Grid.Row="4"
+                       Grid.Column="0" />
+            <TextBlock Text="Клиент"
+                       Grid.Row="4"
+                       Grid.Column="0" />
+            <TextBlock Text="Работник"
+                       Grid.Row="4"
+                       Grid.Column="0" />
+            <TextBlock Text="Статус"
+                       Grid.Row="4"
+                       Grid.Column="0" />
+            <Button Name="ButtonCancel"
+                    Content="Отмена"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2"
+                    Click="ButtonCancel_Click" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="2">
+
+            <Grid Width="280">
+                <TextBlock Name="TextBlockDTCrated"
+                           Height="35"
+                           Width="280"
+                           Text="Дата и время создания"
+                           FontSize="18"
+                           Foreground="Gray"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center" />
+                <TextBox Text="{Binding datetime_created}"
+                         Name="TextBoxDTCreated"
+                         Background="Transparent"
+                         Height="35"
+                         ToolTip="Введите дату и время создания"
+                         FontSize="18"
+                         Width="280"
+                         HorizontalAlignment="Left"
+                         TextChanged="TextBoxDTCreated_TextChanged" />
+            </Grid>
+
+            <Grid Width="280">
+                <TextBlock Name="TextBlockDTClosed"
+                           Height="35"
+                           Width="280"
+                           Text="Дата и время окончания"
+                           FontSize="18"
+                           Foreground="Gray"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center" />
+                <TextBox Text="{Binding datetime_closed}"
+                         Name="TextBoxDTClosed"
+                         Background="Transparent"
+                         Height="35"
+                         ToolTip="Введите дату и время окончания"
+                         FontSize="18"
+                         Width="280"
+                         HorizontalAlignment="Left"
+                         TextChanged="TextBoxDTClosed_TextChanged" />
+            </Grid>
+
+            <Grid>
+                <ComboBox SelectedItem="{Binding Priorities.name}"
+                          Name="cmbPriority"
+                          SelectedIndex="0"
+                          ToolTip="Выберите приоритет"
+                          SelectionChanged="UpdateChart">
+                </ComboBox>
+            </Grid>
+
+            <Grid>
+                <ComboBox SelectedItem="{Binding Equipment.name}"
+                          Name="cmbEquipment"
+                          SelectedIndex="0"
+                          ToolTip="Выберите оборудование"
+                          SelectionChanged="UpdateChart">
+                </ComboBox>
+            </Grid>
+            <Grid Width="280">
+                <TextBlock Name="TextBlockNumOfEquipment"
+                           Height="35"
+                           Width="280"
+                           Text="Серийный номер оборудования"
+                           FontSize="18"
+                           Foreground="Gray"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center" />
+                <TextBox Text="{Binding serial_number_of_equipment}"
+                         Name="TextBoxNumOfEquipment"
+                         Background="Transparent"
+                         Height="35"
+                         ToolTip="Введите серийный номер оборудования"
+                         FontSize="18"
+                         Width="280"
+                         HorizontalAlignment="Left"
+                         TextChanged="TextBoxNumOfEquipment_TextChanged" />
+            </Grid>
+            <Grid>
+                <ComboBox SelectedItem="{Binding Problems.name}"
+                          Name="cmbProblem"
+                          SelectedIndex="0"
+                          ToolTip="Выберите проблему"
+                          SelectionChanged="UpdateChart">
+                </ComboBox>
+            </Grid>
+            <Grid Width="280">
+                <TextBlock Name="TextBlockDescription"
+                           Height="35"
+                           Width="280"
+                           Text="Описание"
+                           FontSize="18"
+                           Foreground="Gray"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center" />
+                <TextBox Text="{Binding description}"
+                         Name="TextBoxDescription"
+                         Background="Transparent"
+                         Height="35"
+                         ToolTip="Введите описание"
+                         FontSize="18"
+                         Width="280"
+                         HorizontalAlignment="Left"
+                         TextChanged="TextBoxDescription_TextChanged" />
+            </Grid>
+            <Grid>
+                <ComboBox SelectedItem="{Binding Clients.second_name}"
+                          Name="cmbClients"
+                          SelectedIndex="0"
+                          ToolTip="Выберите Клиента"
+                          SelectionChanged="UpdateChart"
+                          VerticalAlignment="Top">
+                </ComboBox>
+            </Grid>
+            <Grid>
+                <ComboBox SelectedItem="{Binding Workers.second_name}"
+                          Name="cmbWorker"
+                          SelectedIndex="0"
+                          ToolTip="Выберите сотрудника"
+                          SelectionChanged="UpdateChart">
+                </ComboBox>
+            </Grid>
+            <Grid>
+                <ComboBox SelectedItem="{Binding Statuses.name}"
+                          Name="cmbStatus"
+                          SelectedIndex="0"
+                          ToolTip="Выберите статус"
+                          SelectionChanged="UpdateChart">
+                </ComboBox>
+            </Grid>
+            <Button Name="ButtonSave"
+                    Content="Сохранить"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2"
+                    Click="ButtonSave_Click" />
+        </StackPanel>
+    </Grid>
+</Page>

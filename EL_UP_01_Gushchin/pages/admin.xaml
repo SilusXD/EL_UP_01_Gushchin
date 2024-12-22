@@ -1,0 +1,113 @@
+﻿<Page x:Class="EL_UP_01_Gushchin.pages.admin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EL_UP_01_Gushchin.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="admin">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0"
+                  Name="DataGridReq"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата и время создания"
+                                    Binding="{Binding datetime_created}"
+                                    Width="85" />
+                <DataGridTextColumn Header="Дата и время окончания"
+                                    Binding="{Binding datetime_closed}"
+                                    Width="85" />
+                <DataGridTextColumn Header="Приоритет"
+                                    Binding="{Binding Priorities.name}"
+                                    Width="95" />
+                <DataGridTextColumn Header="Оборудование"
+                                    Binding="{Binding Equipment.name}"
+                                    Width="150" />
+                <DataGridTextColumn Header="Серийный номер оборудования"
+                                    Binding="{Binding serial_number_of_equipment}"
+                                    Width="150" />
+                <DataGridTextColumn Header="Проблема"
+                                    Binding="{Binding Problems.name}"
+                                    Width="150" />
+                <DataGridTextColumn Header="Описание"
+                                    Binding="{Binding description}"
+                                    Width="150" />
+                <DataGridTextColumn Header="Клиент"
+                                    Width="150">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat=" {0} {1} {2}">
+                            <Binding Path="Clients.second_name" />
+                            <Binding Path="Clients.first_name" />
+                            <Binding Path="Clients.last_name" />
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Работник"
+                                    Width="150">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat=" {0} {1} {2}">
+                            <Binding Path="Workers.second_name" />
+                            <Binding Path="Workers.first_name" />
+                            <Binding Path="Workers.lastname" />
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Статус"
+                                    Binding="{Binding Statuses.name}"
+                                    Width="150" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal">
+            <Button Name="ButtonAdd"
+                    Content="Создать заявку"
+                    HorizontalAlignment="Left"
+                    Click="ButtonAdd_Click" />
+
+            <Button Name="ButtonReport"
+                    Content="Отчет"
+                    Width="70"
+                    HorizontalAlignment="Center"
+                    Margin="10,0,10,0"
+                    Click="ButtonReport_Click" />
+
+            <Button Name="ButtonDel"
+                    Content="Удалить заявку"
+                    HorizontalAlignment="Right"
+                    Click="ButtonDel_Click" />
+
+            <Label Content="Статус: "
+                   Grid.Row="1"
+                   Margin="30,0,10,0"
+                   VerticalAlignment="Center" />
+            <ComboBox Grid.Row="1"
+                      Width="150"
+                      SelectedItem="{Binding Statuses.name}"
+                      Name="cmbStatus"
+                      SelectedIndex="0"
+                      ToolTip="Выберите статус"
+                      SelectionChanged="cmbStatus_SelectionChanged">
+                <ComboBoxItem Content="Принят" />
+                <ComboBoxItem Content="В ожидании" />
+                <ComboBoxItem Content="В работе" />
+                <ComboBoxItem Content="Выполнено" />
+                <ComboBoxItem Content="Сдано" />
+            </ComboBox>
+
+            <Button Name="ButtonClear"
+                    Content="Очистить фильтр"
+                    Margin="10,0,0,0"
+                    ToolTip="Очистить фильтр"
+                    Click="ButtonClear_Click" />
+        </StackPanel>
+
+    </Grid>
+</Page>
